@@ -1,0 +1,17 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Atmel Studio Solution File, Format Version 11.00
+Project("{54F91283-7BC4-4236-8FF9-10F437C3AD48}") = "MobilePhone", "MobilePhone\MobilePhone.cproj", "{4B8E73B6-9F3F-4E75-A75E-1BCD8512DC93}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		default|AVR = default|AVR
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4B8E73B6-9F3F-4E75-A75E-1BCD8512DC93}.default|AVR.ActiveCfg = default|AVR
+		{4B8E73B6-9F3F-4E75-A75E-1BCD8512DC93}.default|AVR.Build.0 = default|AVR
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

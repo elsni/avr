@@ -4,20 +4,21 @@
  *                      -------u-------
  *  RST - A0 - (D 5) --| 1 PB5   VCC 8 |-- +5V
  *                     |               |
- *        A3 - (D 3) --| 2 PB3   PB2 7 |-- (D 2) - A1  --> 10K Potentiometer
+ *        A3 - (D 3) --| 2 PB3   PB2 7 |-- (D 2) - A1  --> 10K Potentiometer (not yet implemented)
  *                     |               | 
  *        A2 - (D 4) --| 3 PB4   PB1 6 |-- (D 1) - PWM --> Fan Blue wire
  *                     |               |      
  *              Gnd ---| 4 GND   PB0 5 |-- (D 0) - PWM --> Disabled
  *                     -----------------
- */
 
-/*
  * main.c
  *
  * Created: 8/26/2021 8:12:55 PM
  *  Author: Stephan
  */ 
+
+
+// Fuse bits must be set to let the Attiny 85 run at 8MHz
 #define F_CPU 8000000
 #include <xc.h>
 #include <util/delay.h>
@@ -26,6 +27,10 @@
 int main()
 {
 
+	// Setup:
+	// Fast PWM Mode, Prescaler = /8
+	// PWM on PB1, PB0 disabled
+	// 8MHz / 8 / (39+1) = 25KHz
    
     /*
     Port B Data Direction Register (controls the mode of all pins within port B)
@@ -50,31 +55,30 @@ int main()
     */
     TCCR0B = 1<<WGM02 | 1<<CS01;
    
-	OCR0A = 39;
-	OCR0B = 0;
+	// Set TOP and initialize duty cycle to zero(0)
+	OCR0A = 39;		// TOP - Do not change, sets PWM Pulse rate
+	OCR0B = 0;		// duty cycle for PB1 - generates 500nS pulse even when 0
     
-    /*
-    loop forever
-    */
 	
 	uint8_t count =0;
 	int step=1;
+
+	// loop forever
     for (;;)
     {
        
-        OCR0B = count;
+	    
+        OCR0B = count; // sets Pulse width. MAX TOP (39)
+		
 		count+=step;
         if (count ==39) {
 			step=-1;
-			_delay_ms(10000);
+			_delay_ms(10000); // wait 10s
 		}
         if (count ==0) {
 			step=1;
 			_delay_ms(10000);
 		}
-        /*
-        brief pause so we can perceive what is happening
-        */
         _delay_ms(250);
     }
 }

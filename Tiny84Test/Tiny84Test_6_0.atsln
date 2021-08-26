@@ -1,0 +1,20 @@
+
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Atmel Studio Solution File, Format Version 11.00
+Project("{54F91283-7BC4-4236-8FF9-10F437C3AD48}") = "Tiny84Test", "Tiny84Test\Tiny84Test_6_0.cproj", "{A00C2E38-694A-4B21-A203-BEDB72BC1FAA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|AVR = Debug|AVR
+		Release|AVR = Release|AVR
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A00C2E38-694A-4B21-A203-BEDB72BC1FAA}.Debug|AVR.ActiveCfg = Debug|AVR
+		{A00C2E38-694A-4B21-A203-BEDB72BC1FAA}.Debug|AVR.Build.0 = Debug|AVR
+		{A00C2E38-694A-4B21-A203-BEDB72BC1FAA}.Release|AVR.ActiveCfg = Release|AVR
+		{A00C2E38-694A-4B21-A203-BEDB72BC1FAA}.Release|AVR.Build.0 = Release|AVR
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

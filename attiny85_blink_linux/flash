@@ -1,0 +1,3 @@
+#!/bin/bash
+# Programm the attiny85 connected to USBTinyIsp programmer
+avrdude -p t85 -c usbtiny -e -U flash:w:main.hex

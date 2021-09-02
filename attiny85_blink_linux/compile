@@ -1,0 +1,13 @@
+#!/bin/bash
+# --------------------------------------------
+# compile file with avr-gcc on linux
+# and produce flashable HEX file for avrdude
+# --------------------------------------------
+
+cpu=attiny85
+file=main
+
+avr-gcc -g -Os -mmcu=$cpu -c $file.c
+avr-gcc -g -mmcu=$cpu -o main.elf $file.o
+avr-objcopy -j .text -j .data -O ihex $file.elf $file.hex
+avr-size --format=avr --mcu=$cpu main.elf

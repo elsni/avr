@@ -1,7 +1,8 @@
 /*
 * Light_WS2812 library example - RGB_blinky
 *
-* cycles one LED through red, green, blue
+* bounce one light through a 60 pixel strip.
+* changing color at each bounce.
 *
 * This example is configured for a ATtiny85 with PLL clock fuse set and
 * the WS2812 string connected to PB4.

@@ -1,7 +1,8 @@
 /*
 * Light_WS2812 library example - RGB_blinky
 *
-* cycles one LED through red, green, blue
+* Makes a red, greeen and blue light ping-pong
+* through a 60 (configurable) LED Strip
 *
 * This example is configured for a ATtiny85 with PLL clock fuse set and
 * the WS2812 string connected to PB4.
@@ -12,22 +13,21 @@
 #include <avr/interrupt.h>
 #include "light_ws2812.h"
 
-#define NUMLEDS 60
-
+#define NUMLEDS 60      // number of LEDS of  the LED Strip
+#define INTENSITY 40    // Brightness of the LEDs
 struct cRGB led[NUMLEDS];
 
+// Starting positions of the lights
 uint8_t rpos=0;
 uint8_t gpos=NUMLEDS/3;
 uint8_t bpos=NUMLEDS/3*2;
 
+// Speeds (increments)  for the lights to move at each cycle
 int8_t radd=1;
 int8_t gadd=2;
 int8_t badd=-1;
 
-uint8_t r=40;
-uint8_t g=0;
-uint8_t b=0;
-
+// clears th entire "screen" buffer
 void clr() {
 	uint8_t counter;
 	for(counter=0; counter<NUMLEDS; counter++) {
@@ -46,9 +46,9 @@ int main(void)
 
 	while(1) {
 		clr();
-		led[rpos].r=40;
-		led[gpos].g=40;
-		led[bpos].b=40;
+		led[rpos].r=INTENSITY;
+		led[gpos].g=INTENSITY;
+		led[bpos].b=INTENSITY;
 		ws2812_setleds(led,NUMLEDS);
 
 		if (rpos+radd <= 0) {

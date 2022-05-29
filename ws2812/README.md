@@ -5,5 +5,5 @@ uses the light_ws1212 code by cpldcpu
 
 https://github.com/cpldcpu/light_ws2812
 
-
+Uses the AVR-gcc toolchain on Linux.
 

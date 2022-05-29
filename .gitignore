@@ -17,6 +17,9 @@
 *.hex
 *.map
 *.srec
+*.log
+*.lss
+.vscode
 
 #User Specific Files
 *.atsuo
